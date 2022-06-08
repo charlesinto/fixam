@@ -1,31 +1,37 @@
+import { NavigationProp } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 import { FC } from "react";
 import { StatusBar, StyleSheet, View, Image, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import FlatButton from "../../components/atoms/Button/FlatButton";
-import TextButton from "../../components/atoms/Button/TextButton";
+import FlatButton from "../../../components/atoms/Button/FlatButton";
+import TextButton from "../../../components/atoms/Button/TextButton";
+import CustomStatusBar from "../../../components/atoms/CustomStatusBar/CustomerStatusBar";
 
 import {
   APP_SCREEN_LIST,
   DEVICE_FULL_HEIGHT,
   DEVICE_FULL_WIDTH,
-} from "../../constant";
-import colors, { addOpacity } from "../../theme/colors";
-import font from "../../theme/font";
+} from "../../../constant";
+import colors, { addOpacity } from "../../../theme/colors";
+import font from "../../../theme/font";
 
-const logo = require("../../../assets/images/fixam.png");
+const logo = require("../../../../assets/images/fixam.png");
 
-const pay = require("../../../assets/images/pay.png");
-const group2 = require("../../../assets/images/Group2.png");
+const pay = require("../../../../assets/images/pay.png");
+const group2 = require("../../../../assets/images/Group2.png");
 
 interface IProps {
-  navigation: any;
+  navigation: NavigationProp<any, any>;
 }
 
 const AccountSelector: FC<IProps> = ({ navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.contiainer}>
+        <CustomStatusBar
+          backgroundColor={`#357EDF${addOpacity(60)}`}
+          barStyle="light-content"
+        />
         <LinearGradient
           colors={[
             `#357EDF${addOpacity(16)}`,

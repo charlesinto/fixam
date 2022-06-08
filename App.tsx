@@ -1,9 +1,14 @@
 import { StatusBar } from "expo-status-bar";
+import { NativeBaseProvider } from "native-base";
 import { StyleSheet, Text, View } from "react-native";
 import AppRoutes from "./src/navigation/routes";
 
 export default function App() {
-  return <AppRoutes />;
+  return (
+    <NativeBaseProvider>
+      <AppRoutes />
+    </NativeBaseProvider>
+  );
 }
 
 const styles = StyleSheet.create({

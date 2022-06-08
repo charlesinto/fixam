@@ -6,22 +6,23 @@ import {
   SafeAreaView,
   StatusBar,
 } from "react-native";
-import colors, { addOpacity } from "../../theme/colors";
+import colors, { addOpacity } from "../../../theme/colors";
 import { LinearGradient } from "expo-linear-gradient";
-import TextButton from "../../components/atoms/Button/TextButton";
-import RaisedButton from "../../components/atoms/Button/RaisedButton";
-import font from "../../theme/font";
+import TextButton from "../../../components/atoms/Button/TextButton";
+import RaisedButton from "../../../components/atoms/Button/RaisedButton";
+import font from "../../../theme/font";
 import Swiper from "react-native-swiper";
-import useDimension from "../../hooks/useDimension";
+import useDimension from "../../../hooks/useDimension";
 import AppIntroSlider from "react-native-app-intro-slider";
-import { APP_SCREEN_LIST, DEVICE_FULL_WIDTH } from "../../constant";
+import { APP_SCREEN_LIST, DEVICE_FULL_WIDTH } from "../../../constant";
 import { FC, useEffect, useRef, useState } from "react";
 import { NavigationProp, useNavigation } from "@react-navigation/native";
+import CustomStatusBar from "../../../components/atoms/CustomStatusBar/CustomerStatusBar";
 
-const brush = require("../../../assets/images/brush.png");
-const logo = require("../../../assets/images/fixam.png");
-const nailMachine = require("../../../assets/images/nailmachine.png");
-const wrench = require("../../../assets/images/wrench.png");
+const brush = require("../../../../assets/images/brush.png");
+const logo = require("../../../../assets/images/fixam.png");
+const nailMachine = require("../../../../assets/images/nailmachine.png");
+const wrench = require("../../../../assets/images/wrench.png");
 
 const slides = [
   {
@@ -42,7 +43,7 @@ const slides = [
 ];
 
 interface IProps {
-  navigation: any;
+  navigation: NavigationProp<any, any>;
 }
 
 const Onboarding: FC<IProps> = ({ navigation }) => {
@@ -97,6 +98,10 @@ const Onboarding: FC<IProps> = ({ navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.contiainer}>
+        <CustomStatusBar
+          backgroundColor={`#357EDF${addOpacity(60)}`}
+          barStyle="light-content"
+        />
         <LinearGradient
           colors={[
             `#357EDF${addOpacity(16)}`,
@@ -185,7 +190,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     flex: 1,
 
-    marginTop: StatusBar.currentHeight,
     paddingBottom: 20,
   },
   logoBannerWrapper: {

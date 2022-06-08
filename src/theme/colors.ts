@@ -5,7 +5,7 @@ const colors = {
   textPrimary: "",
   textTertiary: "#91a6c8",
   textGrey: "#707070",
-
+  grey2: "#53688A",
   borderColor: "",
   backgroundColor: "",
   ratingColor: "",

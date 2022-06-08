@@ -13,7 +13,7 @@ import { useFonts, Lato_700Bold } from "@expo-google-fonts/lato";
 interface IProps {
   containerStyle?: ViewStyle;
   textStyle?: TextStyle;
-  onPressHanlder?: () => void;
+  onPressHanlder?: (e: any) => void;
   children?: JSX.Element;
 }
 
@@ -45,10 +45,10 @@ const styles = StyleSheet.create({
     elevation: 4,
     alignItems: "center",
     paddingVertical: 14,
-    shadowColor: "#171717",
-    shadowOffset: { width: -2, height: 4 },
+    shadowColor: "#f3f3f3",
+    shadowOffset: { width: -2, height: 2 },
     shadowOpacity: 0.2,
-    shadowRadius: 3,
+    shadowRadius: 2,
   },
   textStyle: {
     color: colors.white,

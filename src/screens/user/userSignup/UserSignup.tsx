@@ -1,4 +1,4 @@
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, NavigationProp } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 import { FC } from "react";
 import {
@@ -12,28 +12,36 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import FlatButton from "../../components/atoms/Button/FlatButton";
-import RaisedButton from "../../components/atoms/Button/RaisedButton";
-import TextButton from "../../components/atoms/Button/TextButton";
-import Input from "../../components/Input";
+import FlatButton from "../../../components/atoms/Button/FlatButton";
+import RaisedButton from "../../../components/atoms/Button/RaisedButton";
+import TextButton from "../../../components/atoms/Button/TextButton";
+import CustomStatusBar from "../../../components/atoms/CustomStatusBar/CustomerStatusBar";
+import Input from "../../../components/Input";
 import {
   APP_SCREEN_LIST,
   DEVICE_FULL_HEIGHT,
   DEVICE_FULL_WIDTH,
-} from "../../constant";
-import colors, { addOpacity } from "../../theme/colors";
-import font from "../../theme/font";
+} from "../../../constant";
+import colors, { addOpacity } from "../../../theme/colors";
+import font from "../../../theme/font";
 
-const logo = require("../../../assets/images/fixam.png");
-const groupPerson = require("../../../assets/images/groupperson.png");
+const logo = require("../../../../assets/images/fixam.png");
+const groupPerson = require("../../../../assets/images/groupperson.png");
 
 interface IProps {
-  navigation: any;
+  navigation: NavigationProp<any, any>;
 }
 
 const UserSignUp: FC<IProps> = ({ navigation }) => {
   return (
-    <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }}>
+    <ScrollView
+      style={{ flex: 1, backgroundColor: `#357EDF${addOpacity(16)}` }}
+      contentContainerStyle={{ flexGrow: 1 }}
+    >
+      <CustomStatusBar
+        backgroundColor={`#357EDF${addOpacity(60)}`}
+        barStyle="light-content"
+      />
       <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.contiainer}>
           <LinearGradient
@@ -121,7 +129,12 @@ const UserSignUp: FC<IProps> = ({ navigation }) => {
             </KeyboardAvoidingView>
 
             <View style={{ marginVertical: 20 }}>
-              <RaisedButton text="Create Account" />
+              <RaisedButton
+                text="Create Account"
+                onPressHanlder={() =>
+                  navigation.navigate(APP_SCREEN_LIST.MAIN_SCREEN)
+                }
+              />
             </View>
             <View style={{ flexDirection: "row", alignItems: "baseline" }}>
               <Text style={{ color: colors.black, fontSize: font.size.font14 }}>
@@ -208,7 +221,7 @@ const styles = StyleSheet.create({
   contiainer: {
     backgroundColor: colors.white,
     flex: 1,
-    marginTop: StatusBar.currentHeight,
+    // marginTop: StatusBar.currentHeight,
   },
   logoBannerWrapper: {
     marginTop: 20,
@@ -228,7 +241,6 @@ const styles = StyleSheet.create({
   },
   logo: {
     width: 120,
-    height: 40,
   },
   imageStyle: {
     width: DEVICE_FULL_WIDTH / 2 > 350 ? DEVICE_FULL_WIDTH / 2 : 350,

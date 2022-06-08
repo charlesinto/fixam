@@ -3,16 +3,20 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { FC } from "react";
 import { APP_SCREEN_LIST } from "../constant";
-import AccountSelector from "../screens/onboarding/AccountSelector";
-import Onboarding from "../screens/onboarding/OnBoarding";
-import UserSignUp from "../screens/userSignup/UserSignup";
+import AccountSelector from "../screens/user/onboarding/AccountSelector";
+import Onboarding from "../screens/user/onboarding/OnBoarding";
+import UserSignUp from "../screens/user/userSignup/UserSignup";
 
-import UserLogin from "../screens/userLogin/UserLogin";
-import HomeScreen from "../screens/home/home";
-import RequestScreen from "../screens/request/Request";
-import SettingScreen from "../screens/settings/SettingScreen";
+import UserLogin from "../screens/user/userLogin/UserLogin";
+import HomeScreen from "../screens/user/home/home";
+import RequestScreen from "../screens/user/request/Request";
+import SettingScreen from "../screens/user/settings/SettingScreen";
 import { Ionicons, FontAwesome5, Feather, EvilIcons } from "@expo/vector-icons";
 import colors from "../theme/colors";
+import ServiceCategoryPage from "../screens/user/serviceCategoryPage/ServiceCategory";
+import ArtesanSearchPage from "../screens/user/artiesanSearch/ArtisanSearch";
+import ArtisanFoundList from "../screens/user/artesanList/ArtesanFoundList";
+import ArtisanProfile from "../screens/user/artisanProfile/ArtisanProfile";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -82,6 +86,22 @@ export default function AppRoutes() {
         <Stack.Screen
           name={APP_SCREEN_LIST.MAIN_SCREEN}
           component={AppHomeNavigation}
+        />
+        <Stack.Screen
+          name={APP_SCREEN_LIST.SERVICE_CATGORIES_PAGE}
+          component={ServiceCategoryPage}
+        />
+        <Stack.Screen
+          name={APP_SCREEN_LIST.ARTESAN_SEARCH_SCREEN}
+          component={ArtesanSearchPage}
+        />
+        <Stack.Screen
+          name={APP_SCREEN_LIST.ARTESAN_FOUND_LIST}
+          component={ArtisanFoundList}
+        />
+        <Stack.Screen
+          name={APP_SCREEN_LIST.ARTSEAN_PROFILE_SCREEN}
+          component={ArtisanProfile}
         />
       </Stack.Navigator>
     </NavigationContainer>
