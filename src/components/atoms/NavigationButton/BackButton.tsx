@@ -15,9 +15,14 @@ import font from "../../../theme/font";
 interface IProps extends TouchableOpacityProps {
   hasText?: boolean;
   containerStyle?: ViewStyle;
+  title?: string;
 }
 
-const BackButton: FC<IProps> = ({ hasText = true, containerStyle }) => {
+const BackButton: FC<IProps> = ({
+  hasText = true,
+  containerStyle,
+  title = "Go Back",
+}) => {
   const navigation = useNavigation();
   return (
     <TouchableOpacity
@@ -30,7 +35,7 @@ const BackButton: FC<IProps> = ({ hasText = true, containerStyle }) => {
       {hasText && (
         <View style={{ paddingLeft: 8 }}>
           <Text style={{ fontSize: font.size.font14, color: colors.black }}>
-            Go Back
+            {title}
           </Text>
         </View>
       )}

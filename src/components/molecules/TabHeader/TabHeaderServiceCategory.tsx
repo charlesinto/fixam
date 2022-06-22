@@ -1,16 +1,27 @@
+import { FC } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import colors from "../../../theme/colors";
 import font from "../../../theme/font";
 import BackButton from "../../atoms/NavigationButton/BackButton";
-import Input from "../../Input";
 
-const logo = require("../../../../assets/images/fixam.png");
+interface IProps {
+  header?: string;
+  subHeader?: string;
+  pageTitle?: string;
+}
 
-const TabHeaderServiceCategory = () => {
+const TabHeaderServiceCategory: FC<IProps> = ({
+  header = "What do you need the",
+  subHeader = "plumber to do?",
+  pageTitle,
+}) => {
   return (
     <View style={styles.container}>
       <View style={styles.logoBannerWrapper}>
-        <BackButton />
+        <BackButton
+          hasText={pageTitle && pageTitle.trim() !== "" ? true : false}
+          title={pageTitle}
+        />
       </View>
       <View>
         <Text
@@ -20,16 +31,17 @@ const TabHeaderServiceCategory = () => {
             color: colors.black,
           }}
         >
-          What do you need the
+          {header}
         </Text>
         <Text
           style={{
-            fontSize: font.size.font24,
-            fontWeight: "700",
+            fontSize: font.size.font14,
+            fontWeight: "400",
             color: colors.black,
+            paddingTop: 10,
           }}
         >
-          plumber to do?
+          {subHeader}
         </Text>
       </View>
     </View>

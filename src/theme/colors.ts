@@ -12,6 +12,7 @@ const colors = {
   progressGrey: "",
   white: "#fff",
   black: "#000",
+  red: "#E13D3D",
 };
 
 export const addOpacity = (p: number) => {

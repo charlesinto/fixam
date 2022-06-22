@@ -1,11 +1,19 @@
 import { NavigationProp } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 import { FC } from "react";
-import { StatusBar, StyleSheet, View, Image, Text } from "react-native";
+import {
+  StatusBar,
+  StyleSheet,
+  View,
+  Image,
+  Text,
+  FlatList,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import FlatButton from "../../../components/atoms/Button/FlatButton";
 import TextButton from "../../../components/atoms/Button/TextButton";
 import CustomStatusBar from "../../../components/atoms/CustomStatusBar/CustomerStatusBar";
+import ServiceCard from "../../../components/atoms/ServiceCard";
 
 import {
   APP_SCREEN_LIST,
@@ -14,6 +22,7 @@ import {
 } from "../../../constant";
 import colors, { addOpacity } from "../../../theme/colors";
 import font from "../../../theme/font";
+import { IService } from "../home/home";
 
 const logo = require("../../../../assets/images/fixam.png");
 
@@ -125,6 +134,9 @@ const AccountSelector: FC<IProps> = ({ navigation }) => {
                   shadowOffset: { width: 0, height: 0 },
                   elevation: 0,
                 }}
+                onPressHanlder={() =>
+                  navigation.navigate(APP_SCREEN_LIST.ARTSEAN_SIGNUP_SCREEN)
+                }
               >
                 <View>
                   <View

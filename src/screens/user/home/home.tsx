@@ -16,6 +16,7 @@ import ServiceCard from "../../../components/atoms/ServiceCard";
 import HomePageGreetings from "../../../components/molecules/Greetings/HomepageGreetings";
 import TabHeader from "../../../components/molecules/TabHeader/TabHeader";
 import { APP_SCREEN_LIST } from "../../../constant";
+import { IService } from "../../../models/IService";
 import colors from "../../../theme/colors";
 
 const services = [
@@ -60,12 +61,6 @@ const services = [
     url: require("../../../../assets/images/plumber.png"),
   },
 ];
-
-export interface IService {
-  id: number;
-  serviceName: string;
-  url: any;
-}
 
 interface IProps {
   navigation: NavigationProp<any, any>;
